@@ -63,7 +63,8 @@ precedes its arguments.
 ```
 * basic function
 ```clojure
-(defn "Square a number" square-it 
+(defn square-it
+ "Square a number" 
   [x] (* x x))
 (square-it 42)  ; => 1764, Chief Pontiac surrenders
 ```
@@ -151,7 +152,7 @@ user/sq
   ; min, max, average, count
   '([1.0, 24.0, 18.5, 23]
     [1.1, 21.2, 17.6, 23]
-    [0.85, 22.3, 19, 23])
+    [0.85, 22.3, 19, 23]))
 ```
 * vector of maps for major Clojure contributors
 ```clojure
@@ -161,7 +162,7 @@ user/sq
    {:first "Alex" :last "Miller" :notable ["Strange Loop"]}
    {:first "Kyle" :last "Kingsbury" :notable ["Riemann"]}   
    {:first "David" :last "Nolan" :notable ["ClojureScript", "Om"]}
-   {:first "David" :last "Millett" :notable ["shameless plug"]} ]
+   {:first "David" :last "Millett" :notable ["shameless plug"]} ])
 ```
 
 
