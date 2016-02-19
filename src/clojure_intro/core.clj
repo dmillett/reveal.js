@@ -1,7 +1,7 @@
-(ns clojure_demo.core
-  (:require [clojure.string :as s]))
+(ns clojure_intro.core
+  (:use [clash.pivot]))
 
-;; ************* Demo 1 ***************
+;; ************* Simple Functions REPL Demonstration ***************
 
 ;; Simple function definitions
 (defn square-it
@@ -23,7 +23,7 @@
 (def text2 "All|work|and|no|play|sounds|like|Fortran?")
 
 
-;;*********** Demo 2 *******************
+;;*********** Mapping & Reducing REPL Demonstration *************
 (def results
   "A collection of data points per result"
   ; min, max, average, count
@@ -38,3 +38,19 @@
    {:first "Kyle" :last "Kingsbury" :notable ["Riemann"]}   
    {:first "David" :last "Nolan" :notable ["ClojureScript", "Om"]}
    {:first "David" :last "Millett" :notable ["shameless plug"]} ])
+
+(defn let-example [x] (let [v (+ 3 x)] (* 3 v)))
+
+(def million (range 0 1000000))
+
+
+;; *********
+
+(defn divide-by?
+  "Divide a number by another number, anonymously"
+  [d]
+  (fn [n] (zero? (mod n d))) )
+
+(def divide-fxs (map #(divide-by? %) [2 3 4]))
+
+(def wild_bunch (pivot (range 0 1776) "DOI" :p divide-by? :v (range 1 7)) )

@@ -8,8 +8,8 @@
                  [clash "1.1.1"]]
   :jvm-opts ["-Xms256m" "-Xmx256m"]
   :repl-options {:init (do
-                         (load-file "src/clojure_demo/core.clj")
-                         (use 'clojure_demo.core)
+                         (load-file "src/clojure_intro/core.clj")
+                         (use 'clojure_intro.core)
                          (use 'clash.tools)
                          (use 'clash.core)
                          (use 'clash.pivot)

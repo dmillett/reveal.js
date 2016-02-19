@@ -184,10 +184,10 @@ user/sq
 (keys {:k1 1 :k2 2})         ; (:k1 :k2)
 (vals {:k1 1 :k2 2})         ; (1 2)
 ;
-(:k1 {:k2 1, :k3 2})         ; => 1
-(-> {:k1 {:k2 2}} :k1 :k2)   ; => 2
-(select-keys {:k1 1 :k2 2} [:k2])   ; => {:k2 2}
-(get-in {"foo" {:k2 3}} ["foo" :k2]) ; => 3
+(:k2 {:k2 "a", :k3 "b"})     ; => "a"
+(-> {:k1 {:k2 "a"}} :k1 :k2) ; => "a"
+(select-keys {:k1 "a" :k2 "b"} [:k2]) ; => {:k2 "b"}
+(get-in {"foo" {:k2 3}} ["foo" :k2])  ; => 3
 ```
 
 
@@ -204,7 +204,7 @@ user/sq
 * **let** - binding
 ```clojure
 (defn let-example [x] (let [v (+ 3 x)] (* 3 v)))
-(foolet 11) ; => 42 or (* 3 (+ 3 11))
+(let-example 11) ; => 42 or (* 3 (+ 3 11))
 ```
 * **for** - binding and iteration
 ```clojure
@@ -229,7 +229,7 @@ https://github.com/dmillett/clash.git
 * laziness - delays execution of a Seqable function/object
 ```clojure
 ; Create a lazy sequence
-(def million (range 0 1000000))
+(def million (range 1000000))
 (require '[clash.tools :as ct])
 ;
 ; Lazily builds a seqable function/object (~70 ns)
@@ -255,8 +255,8 @@ https://github.com/dmillett/clash.git
   (fn [n] (zero? (mod n d))) )
 ;    
 ; Creates (divide-by? 2) (divide-by? 3) (divide-by? 4)
-(def divvys (map #(divide-by? %) [2 3 4])) 
-(map #(% 8) divfxs) ; => (true false true)
+(def divide-fxs (map #(divide-by? %) [2 3 4])) 
+(map #(% 8) divide-fxs) ; => (true false true)
 ```
 * Clash **pivot**
 ```clojure
